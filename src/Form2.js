@@ -16,7 +16,8 @@ const Form2 = () => {
     }
     const handleForm = (e) => {
         e.preventDefault()
-        axios.post('/', { inputs })
+        const data = JSON.stringify(inputs)
+        axios.post('/', { data })
             .then(data => console.log(data))
             .catch(err => console.log(err))
     }
