@@ -22,8 +22,19 @@ const Form2 = () => {
             )
             .join("&");
 
+        fetch('/', {
+            method="post",
 
-        axios.post(`/?${myData}`)
+        })
+        axios({
+            "form-name": "contact v1",
+            method: 'post',
+            url: '/',
+            data: {
+                name: 'Fred',
+                email: 'Flintstone'
+            }
+        })
             .then(data => console.log(data))
             .catch(err => console.log(err))
 
