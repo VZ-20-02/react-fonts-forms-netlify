@@ -28,10 +28,10 @@ const Form2 = () => {
         // })
         console.log(inputs)
         axios({
-            "form-name": "contact v1",
             method: 'post',
             url: '/',
             data: {
+                "form-name": "contact v1",
                 name: 'Fred',
                 email: 'Flintstone'
             }
