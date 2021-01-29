@@ -14,13 +14,14 @@ const Form2 = () => {
         }
         )
     }
-    const handleForm = () => {
+    const handleForm = (e) => {
+        e.preventDefault()
         axios.post('/', { inputs })
             .then(data => console.log(data))
             .catch(err => console.log(err))
     }
     return (<>
-        <form name="contact v1" action={handleForm()}>
+        <form name="contact v1" onSubmit={e => handleForm(e)}>
             {/* Wichtig ist das versteckte Inputfeld und dessen value, der eine Verbindung zu dem Form im HTML herstellt 
             Sonst normales Form mit name Attributen */}
             <input type="hidden" name="form-name" value="contact v1" /> <br />
