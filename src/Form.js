@@ -1,6 +1,6 @@
 const Form = () => {
     return (<>
-        <form name="contact v1" method="post">
+        <form name="contact v1" method="post" action="/">
             {/* Wichtig ist das versteckte Inputfeld und dessen value, der eine Verbindung zu dem Form im HTML herstellt 
             Sonst normales Form mit name Attributen */}
 
