@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import axios from 'axios'
+
 // https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 const Form2 = () => {
     const [inputs, setInputs] = useState({
@@ -17,36 +17,18 @@ const Form2 = () => {
 
     const handleForm = (e) => {
         e.preventDefault()
-        // let myData = Object.keys(inputs)
-        //     .map(
-        //         key => `${encodeURIComponent(key)}=${encodeURIComponent(inputs[key])}`
-        //     )
-        //     .join("&");
-
         const encode = (data) => {
             return Object.keys(data)
                 .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
                 .join("&");
         }
         fetch("/", {
-
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact v1", ...inputs })
         })
-        // console.log(inputs)
-        // axios({
-        //     method: 'post',
-        //     url: '/',
-        //     data: {
-        //         "form-name": "contact v1",
-        //         name: 'Fred',
-        //         email: 'Flintstone'
-        //     }
-        // })
-        //     .then(data => console.log(data))
-        //     .catch(err => console.log(err))
-
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     }
     return (<>
         <form name="contact v1" onSubmit={e => handleForm(e)}>
