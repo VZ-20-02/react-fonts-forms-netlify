@@ -1,3 +1,4 @@
+// https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 const Form = () => {
     return (<>
         <form name="contact v1" method="post" action="/thanks">
