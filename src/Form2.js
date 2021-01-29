@@ -29,16 +29,15 @@ const Form2 = () => {
         })
             .then(res => console.log(res))
             .catch(err => console.log(err));
-
     }
     return (<>
         <form name="contact v1" onSubmit={e => handleForm(e)}>
             {/* Wichtig ist das versteckte Inputfeld und dessen value, der eine Verbindung zu dem Form im HTML herstellt 
             Sonst normales Form mit name Attributen */}
             <input type="hidden" name="form-name" value="contact v1" /> <br />
-            <input type="text" name="name" placeholder="First Name" onChange={e => handleInputs(e)} /><br />
-            <input type="email" name="email" placeholder="Email" onChange={e => handleInputs(e)} /><br />
-            <textarea name="message" onChange={e => handleInputs(e)}></textarea> <br />
+            <input type="text" name="name" placeholder="First Name" value={inputs.name} onChange={e => handleInputs(e)} /><br />
+            <input type="email" name="email" placeholder="Email" value={inputs.email} onChange={e => handleInputs(e)} /><br />
+            <textarea name="message" value={inputs.message} onChange={e => handleInputs(e)}></textarea> <br />
             <button type="submit">Send Message</button>
         </form>
     </>);
