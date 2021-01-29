@@ -16,16 +16,16 @@ const Form2 = () => {
     }
     const handleForm = (e) => {
         e.preventDefault()
-        let myData = Object.keys(inputs)
-            .map(
-                key => `${encodeURIComponent(key)}=${encodeURIComponent(inputs[key])}`
-            )
-            .join("&");
+        // let myData = Object.keys(inputs)
+        //     .map(
+        //         key => `${encodeURIComponent(key)}=${encodeURIComponent(inputs[key])}`
+        //     )
+        //     .join("&");
 
-        fetch('/', {
-            method="post",
+        // fetch('/', {
+        //     method="post",
 
-        })
+        // })
         axios({
             "form-name": "contact v1",
             method: 'post',
