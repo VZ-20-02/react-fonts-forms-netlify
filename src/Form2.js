@@ -29,6 +29,7 @@ const Form2 = () => {
         })
             .then(res => console.log(res))
             .catch(err => console.log(err));
+
     }
     return (<>
         <form name="contact v1" onSubmit={e => handleForm(e)}>
