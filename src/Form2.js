@@ -32,7 +32,7 @@ const Form2 = () => {
 
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...inputs })
+            body: encode({ "form-name": "contact v1", ...inputs })
         })
         // console.log(inputs)
         // axios({
