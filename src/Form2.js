@@ -16,10 +16,17 @@ const Form2 = () => {
     }
     const handleForm = (e) => {
         e.preventDefault()
-        const data = JSON.stringify(inputs)
-        axios.post('/', { data })
+        let myData = Object.keys(inputs)
+            .map(
+                key => `${encodeURIComponent(key)}=${encodeURIComponent(inputs[key])}`
+            )
+            .join("&");
+
+
+        axios.post(`/?${myData}`)
             .then(data => console.log(data))
             .catch(err => console.log(err))
+
     }
     return (<>
         <form name="contact v1" onSubmit={e => handleForm(e)}>
