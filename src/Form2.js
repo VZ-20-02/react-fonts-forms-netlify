@@ -14,6 +14,7 @@ const Form2 = () => {
         }
         )
     }
+
     const handleForm = (e) => {
         e.preventDefault()
         // let myData = Object.keys(inputs)
@@ -22,22 +23,29 @@ const Form2 = () => {
         //     )
         //     .join("&");
 
-        // fetch('/', {
-        //     method="post",
+        const encode = (data) => {
+            return Object.keys(data)
+                .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+                .join("&");
+        }
+        fetch("/", {
 
-        // })
-        console.log(inputs)
-        axios({
-            method: 'post',
-            url: '/',
-            data: {
-                "form-name": "contact v1",
-                name: 'Fred',
-                email: 'Flintstone'
-            }
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact", ...inputs })
         })
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+        // console.log(inputs)
+        // axios({
+        //     method: 'post',
+        //     url: '/',
+        //     data: {
+        //         "form-name": "contact v1",
+        //         name: 'Fred',
+        //         email: 'Flintstone'
+        //     }
+        // })
+        //     .then(data => console.log(data))
+        //     .catch(err => console.log(err))
 
     }
     return (<>
